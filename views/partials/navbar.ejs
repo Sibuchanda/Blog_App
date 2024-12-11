@@ -1,50 +1,56 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
+<nav class="custom-navbar">
+    <div class="navbar-left">
+      <div class="logo">
+        <img src="/images/logo2.png" alt="Logo">
+        <p>Blogify</p>
+      </div>
+    </div>
+
+    <div class="navbar-center">
+      <ul class="navBarNew">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <!-- -------If there is user object in the locals then show the add blogs button else not----------- -->
-         <% if(locals.user){ %>
+        <% if(locals.user){ %>
         <li class="nav-item">
           <a class="nav-link" href="/blog/add-new">Add Blog</a>
         </li>
+        <% } %>
+      </ul>
+    </div>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="navbar-right">
+      <% if(locals.user){ %>
+      <ul class="user-actions">
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button">
             <%= user.fullname %>
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
           </ul>
+        </li> -->
+        <li>
+          <div class="userLogo">
+            <p>S</p>
+          </div>
         </li>
-        <% } else{ %>
-          <li class="nav-item">
-            <a class="nav-link" href="/user/signup">Signup</a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/user/signin">Signin</a>
-          </li>
-          <% }%>
-        <!-- ----------------------------- -->
-       
       </ul>
+      <% } else { %>
+      <ul class="auth-actions">
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signup">Signup</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signin">Signin</a>
+        </li>
+      </ul>
+      <% } %>
     </div>
-  </div>
 </nav>
-
-
-<!-- Code when error occures  -->
 
 <% if(locals.error){ %>
 <div class="container mt-4">
   <div class="alert alert-danger" role="alert"> <%= locals.error %> </div>
 </div>
-  <% } %>
+<% } %>
