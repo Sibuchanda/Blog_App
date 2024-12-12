@@ -69,6 +69,7 @@
     background-color: white;
     margin-right: 2rem;
     cursor: pointer;
+    position: relative;
   }
   
   .userLogo p {
@@ -93,3 +94,48 @@
     font-size: 1rem;
   }
   
+
+  /* ============= User Details ======== */
+
+  .userDetails{
+    position: absolute;
+    right: 50px;
+    top:68px;
+    z-index: 100;
+    background-color: white;
+    color: black;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    padding: 1rem;
+    min-width: 200px;
+    border-radius: 5px;
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .userDetails p{
+    margin: 2px 2px;
+  }
+  .userDetails #userName{
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .userDetails #userEmail{
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .userDetails #logoutBtn{
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: #fe1616df;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 3px;
+    width: 100%;
+  }
+  .userDetails #logoutBtn:hover{
+    background-color: #fe16169e;
+  }

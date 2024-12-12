@@ -1,56 +1,60 @@
 <nav class="custom-navbar">
-    <div class="navbar-left">
-      <div class="logo">
-        <img src="/images/logo2.png" alt="Logo">
-        <p>Blogify</p>
-      </div>
+  <div class="navbar-left">
+    <div class="logo">
+      <img src="/images/logo2.png" alt="Logo">
+      <p>Blogify</p>
     </div>
+  </div>
 
-    <div class="navbar-center">
-      <ul class="navBarNew">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <% if(locals.user){ %>
+  <div class="navbar-center">
+    <ul class="navBarNew">
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+      </li>
+      <% if(locals.user){ %>
         <li class="nav-item">
           <a class="nav-link" href="/blog/add-new">Add Blog</a>
         </li>
         <% } %>
-      </ul>
-    </div>
+    </ul>
+  </div>
 
-    <div class="navbar-right">
-      <% if(locals.user){ %>
+  <div class="navbar-right">
+    <% if(locals.user){ %>
       <ul class="user-actions">
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button">
-            <%= user.fullname %>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/user/logout">Logout</a></li>
-          </ul>
-        </li> -->
         <li>
           <div class="userLogo">
-            <p>S</p>
+            <p><%= user.fullname.charAt(0).toUpperCase() %></p>
+          </div>
+
+          <!-- // Profile menu----- -->
+          <div class="userDetails hidden">
+            <p id="userName">Hello, <%= user.fullname %></p>
+            <p id="userEmail"><%= user.email %></p>
+            <hr>
+            <button id="logoutBtn">Logout</button>
           </div>
         </li>
       </ul>
+
       <% } else { %>
-      <ul class="auth-actions">
-        <li class="nav-item">
-          <a class="nav-link" href="/user/signup">Signup</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/user/signin">Signin</a>
-        </li>
-      </ul>
-      <% } %>
-    </div>
+        <ul class="auth-actions">
+          <li class="nav-item">
+            <a class="nav-link" href="/user/signup">Signup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/user/signin">Signin</a>
+          </li>
+        </ul>
+        <% } %>
+  </div>
 </nav>
 
+
 <% if(locals.error){ %>
-<div class="container mt-4">
-  <div class="alert alert-danger" role="alert"> <%= locals.error %> </div>
-</div>
-<% } %>
+  <div class="container mt-4">
+    <div class="alert alert-danger" role="alert">
+      <%= locals.error %>
+    </div>
+  </div>
+  <% } %>
