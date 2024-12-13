@@ -67,6 +67,17 @@
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   }
+
+  .dashboardFooter{
+    width: 100vw;
+    height: 8vh;
+    background-color: #07366e; 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
   
   @media (max-width: 1200px) {
     .card {
